@@ -841,7 +841,6 @@ padding-top: 60px;
 .quotation::after {
   content: close-quote;
   display: inline;
-  height: 0;
   line-height: 0;
   left: 10px;
   position: relative;
