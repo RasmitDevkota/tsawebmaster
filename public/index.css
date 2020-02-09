@@ -17,7 +17,7 @@
   text-decoration: none;
 }
 center {
-  text
+  text-align: center;
 }
 .nav-container {
   max-width: 1000px;
