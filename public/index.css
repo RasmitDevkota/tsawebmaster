@@ -831,7 +831,6 @@ padding-top: 60px;
 .quotation:before {
   content: open-quote;
   display: inline;
-  height: 0;
   line-height: 0;
   left: -10px;
   position: relative;
