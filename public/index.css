@@ -300,7 +300,7 @@ text-decoration : none
   justify-content: space-around;
 }
 .title{
-color: turquoise;
+  color: turquoise;
   text-shadow: 3px 3px white; /*color for gold */
   font-size: 900%;
   position: relative;
