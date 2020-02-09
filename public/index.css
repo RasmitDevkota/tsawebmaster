@@ -366,9 +366,9 @@ canvas{
 #overlap canvas, #identification {
   position: absolute;
 }
-//canvas//
+/* //canvas//
 
-//scroller//
+//scroller// */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
 section h1 {
   position: static;
