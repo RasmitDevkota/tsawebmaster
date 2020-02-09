@@ -296,8 +296,8 @@ text-decoration : none
   margin: 0;
   height: 130%; //500px
   display: flex;
-  //flex-direction: column;
-  //justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .title{
 color: turquoise;
