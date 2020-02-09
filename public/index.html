@@ -1,58 +1,534 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+/***
+ *                     ███████╗      ███████╗
+ *                     ██╔════╝      ██╔════╝
+ *                     █████╗        █████╗
+ *                     ██╔══╝   ██╗  ██╔══╝
+ *                     ███████╗ ╚═╝  ███████╗  
+ *         FAST        •        EASY        •        SHIPPING
+ *    report@ElectricElixir
+ *    twitter.com/ElectricElixir
+ *    fb.com/ElectricElixir                                                        
+ */
+ -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+	<head>
+		<title> SFHS Chapter </title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx6X4yzrAlao4e7bURB5KLoRFiL9emlOrsVqAxgazePbRIQ_l8&s" type="image/x-icon" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="compatibility.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="187446168525-caam2v5u1eevk06lii821tca5gik522d.apps.googleusercontent.com">
+		<link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/footer.css">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+    <link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/search.css">
+		<script src="https://roycearoc.github.io/VastAtlanta/search.js"></script>
+	</head>
+
+<body>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=510560679564454&autoLogAppEvents=1"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '510560679564454',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v5.0',
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+function statusChangeCallback(response){
+	if(response.status === 'connected'){
+		console.log('Logged in and Authenticated');
+		document.getElementById("Popup_defier").style.display="none";
+	    document.getElementById("00001").style.display="none";
+        document.getElementById("yum").style.display="block";
+		 document.getElementById("weak").style.display="block";
+		testAPI();
+	} else {
+		console.log('Not authenticated');
+		//document.getElementById("Popup_defier").style.display="block";
+	    document.getElementById("00001").style.display="block";
+        document.getElementById("yum").style.display="none";
+	}
+}
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+function testAPI() {
+	FB.api('/me?fields=name,email,picture.width(150).height(150)', function(response){
+		if(response && !response.error){
+		   console.log(response);
+			buildProfile(response);
+		}
+	})
+}
+function buildProfile(user) {
+	let FBname = `${user.name}`;
+	let FBemail = `${user.email}`;
+	let FBimage = `${user.picture.data.url}`;   //this is the email -- we are not using it yet, but we will use it later
+	document.getElementById("inputA").innerHTML = FBname;
+	document.getElementById("yourself").src = FBimage;
+	
+
+}
+function logout() {
+	  //facebook logout implementation
+	FB.logout(function(response){
+		console.log("Facebook user has successfully signed out!");
+		setElements(false);
+	});
+}
+ function signOut() {
+  
+    //googleAuth logout implementation
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+<summary id="laptop">
+<!-- Horizontal navbar on top-->
+
+<div id='cssmenu'> 
+ <ul>
+   <li><a href='index.html'>Home</a></li>
+   <li class='active'><a href='STEM.html'>STEM</a>
+     <ul>
+         <li><a href='AcademicBowl.html.html'>Academic Bowl</a>
+         </li>
+		
+         <li><a href='BiologyOlympiad.html'>Biology Olympiad</a>
+         </li>
+		 
+         <li><a href='Cyberpatriot.html'>Cyberpatriot</a>
+         </li>
+      </ul> </li>
+ 
+   <li class='active'><a href='academics.html'>Academics</a>
+   </li>
+<li class='active'><a href='SfhsTsa.htm'>Our TSA Chapter</a>
+   </li>
+   <li class='active'><a href='ElectricElixir.html'>Electric Elixir</a>
+   </li>
+
+   <li style="right: 0;margin-right: 57%; position: fixed;"> 
+
+<div>
+  <div > <input id="leggo" onclick="setInterval(Major, 1000)" onmouseover="Change(this)" onmouseout="ReverseChange(this)" style="width: 50%; height: 45px; position: fixed; top:3; border: none; background-color: lightgrey;" type="text" placeholder="&nbsp;&nbsp;Search Our School" ></input>
+ 
+ <img style="height: 45px; width: 46px;position: absolute; right: 0; float: right; border: none; background-color: lightgrey;" src="https://roycearoc.github.io/VastAtlanta/images/Search.png"></img>
+  </div>
+ 
     
-    <script defer src="/__/firebase/7.8.1/firebase-app.js"></script>
-    <script defer src="/__/firebase/init.js"></script>
+</div>
+   </li>
+   <li id="00001">
+	   <a style="align: right; float: right; position: fixed; right:0; " href="#" onclick="Popup();">Login</a>
+   </li>
+	 <div id="main" ID="00002" >
+		 <li id="00002" >
+			 <a id="yum" style="display: none; align: right; float: right; position: fixed; right:0;" href="#" onclick="Popup123();">
+				 <button id="yum" class="openbtn" style="position: fixed; top:3px; right: 3px;" onclick="openNav()">☰      
+				 </button> 
+			 </a>
+		 </li>
+	 </div>
+</ul>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<div style="z-index: 100000000000000000000000;" id="mySidebar" class="sidebar">
+  <a style="position: relative;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <p style="text-align: center;"> <i> Signed in as </i></p><br><p style="text-align: center; font-size: 20px; color: white;" id="inputA"></p>
+  <div class="hover08 column">
+    <div>
+     <figure><a href="#"><img id="yourself" src="" style="width:70%; height: 70%;"></img></a></figure>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </div>
+  <a href="cart.html">Your Cart</a>
+  <a href="PastOrders.html">Past Orders</a>
+  <a href="https://vast--roycea.repl.co/">Forum</a>
+  <a href="#">Reviews</a>
+  <a href="index.html" onclick="signOut();logout();">Sign out</a>
+</div>
+</div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+<aside id="weak">
+      <header class="main">
+		  <div class="bg">
+			  <div class="bg2">
+        <section class="headermain ">
+          <section  class="titleWrapper">
+			   
+        <h1 style="text-align: right;" class="title">SFHS TSA<br> Chapter</h1>
+            </section>
+        </section>
+	
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+<script id="rendered-js">
+$('.uis-form-icon').on('click', function () {
+  $(this).addClass('uis-active');
+
+  $(this).siblings('input').addClass('uis-active');
+  $(this).siblings('input').focus();
+
+  $(this).siblings('input').focusout(function (e) {
+    $(this).removeClass('uis-active');
+    $(this).siblings('i').removeClass('uis-active');
+    $(this).val('');
+  });
+});
     </script>
-  </body>
+
+	 </div>
+	  
+<div class="shopping_cart" style="position: relative; z-index: -9; " >
+		<p style="font-family: Arial, Helvetica, sans-serif;position: relative; top:0; margin-top: 30%;"> <center><h1>"Unity is Strength"</h1></p>
+		<br>
+		
+<aside>
+	<span>
+	<div style="float: left; position: relative; left: 4%;"><img style="width: 90%; height: 100%;" src="images/1.PNG"></img></div></span><span>
+	<div style="width: 47%; height: 40%; margin-right: 7%;float: right; position: relative; right: 0px;font-size: 100%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"> About TSA </h1> The Technology Student Association (TSA) is a national, non-profit career and technical student organization (CTSO) of middle and high school students who are engaged in science, technology, engineering, and mathematics (STEM). Since TSA was chartered in 1978, almost 4,000,000 student members have participated through competitions, intracurricular activities, leadership opportunities, community service, and more.TSA chapters take the study of STEM beyond the classroom and give students the chance to pursue academic challenges among friends with similar goals and interests. Together, TSA chapter members work on competitive events, learn and apply leadership skills, and may attend conferences at the state, regional, and national levels. TSA chapters also are committed to a national service project and are among the most service-oriented groups in the community.
+
+</aside>
+
+<aside style="position: abosolute; bottom:0; width: 80%;">
+<span>
+	<br><br><br><br>
+	<center><br><br><br><br><br><br>
+	<div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br><br><br><br>&nbsp; &nbsp; &nbsp;🏆&nbsp;TSA Competitions&nbsp;🏆 </h1> Imagine an activity so captivating that your students spend hours working on it for weeks at a time. That is what can happen when TSA members engage in TSA competitions. Only TSA members have the opportunity to compete at exciting state conferences and then at the annual National TSA Conference. Expert judging by technology and engineering educators and industry representatives inspires the best from participants. Members are rewarded not only with medals or trophies, but also with memories of camaraderie and the challenge of participating in a National TSA Conference.
+<br><br>
+TSA competitions include categories such as Biotechnology Design, Career Prep, Coding, CompTIA ITF+ Certification, Cybersecurity, Digital Photography, Dragster Design, Flight, Leadership Strategies, Medical Technology, Prepared Presentation, Software Development, Technology Problem Solving, Video Game Design, Webmaster, and much more.
+</center>
+</aside>
+
+
+<aside style="position: abosolute; width: 80%;">
+<span>
+	
+	<center>
+	<div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;📜 &nbsp;Curriculum Integration&nbsp; 📜</h1> Education directives at the federal and state levels focus on providing avenues for initiatives such as STEM education. As a career and technical student organization (CTSO), TSA helps teachers meet the criteria for STEM education goals through exciting programs that include activities, competitions, leadership, and teamwork for students. In addition, all TSA activities are correlated to the Standards for Technological Literacy, as set forth by the International Technology and Engineering Educators Association (ITEEA). Teachers can use TSA activities during the school day in their classroom, and extend the learning beyond the classroom through a TSA chapter.
+
+</center>
+</aside>
+
+<aside style="position: abosolute; width: 80%;">
+<span>
+	
+	<center>
+	<div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;🥇 &nbsp;Mission Statement&nbsp; 🥇</h1> The Technology Student Association (TSA)enhances personal development, leadership, and career opportunities in science, technology, engineering, and math (STEM), whereby members apply and integrate these concepts through intracurricular activities,  competitions, and related programs.
+
+</center>
+</aside>
+<aside style="position: abosolute; width: 80%;">
+<span>
+	
+	<center>
+	<div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;👁️&nbsp;Vision Statement&nbsp; 👁️</h1> TSA is accelerating student achievement and supporting teachers by providing engaging opportunities to develop STEM skills.
+
+
+</center>
+</aside>
+<aside style="position: abosolute; width: 80%;">
+<span>
+	
+	<center>
+	<div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;🎤&nbsp;Motto&nbsp; 🎤</h1> Learning to lead in a technical world.
+
+
+
+</center>
+</aside>
+
+<aside style="position: abosolute; width: 80%;">
+<span>
+	
+	<center>
+	<div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;📝&nbsp;Creed&nbsp; 📝</h1> I believe that Technology Education holds an important place in my life in the technical world. I believe there is a need for the development of good attitudes concerning work, tools, materials, experimentation, and processes of industry. Guided by my teachers, artisans from industry, and my own initiative, I will strive to do my best in making my school, community, state, and nation better places in which to live.<br><br>I will accept the responsibilities that are mine. I will accept the theories that are supported by proper evidence. I will explore on my own for safer, more effective methods of working and living. I will strive to develop a cooperative attitude and will exercise tact and respect for other individuals. Through the work of my hands and mind, I will express my ideas to the best of my ability. I will make it my goal to do better each day the task before me, and to be steadfast in my belief in my God, and my fellow Americans.
+
+
+
+</center>
+</aside>
+	</div>
+<article style="position: relative; top: 30%;">
+		<div id='subject'></div>
+<div class="scroll-down"></div>
+
+    </article>
+
+<br><br><br><br><br><br><br><br>
+
+
+	</header>
+	
+	 </div>
+	
+	 </section>
+	  
+	 </div>
+	
+<p style="color: white;" id="subject"></p>
+<!-- Site footer -->
+    <footer id="footer" style="z-index: -1;position: absolute; bottom:0; background-color: #333333; height: 5%; width: 100%; color: white; text-align: left;"> <p class="copyright" >&nbsp;&nbsp;© South Forsyth High School 2020 </p> <p style="float: right;"> <img id="Insta" src="https://roycearoc.github.io/VastAtlanta/images/Instagram.png"></img> <img style="position: relative; bottom: 28px;" src="https://roycearoc.github.io/VastAtlanta/images/Facebook.png"></img><img style="position: relative; bottom: 28px;" src="https://roycearoc.github.io/VastAtlanta/images/Twitter.png"></img> &nbsp; &nbsp;
+</footer>
+
+</aside>
+
+<div id="Popup_defier" style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+	<center><form action="/action_page.php">
+	<br><br>
+  Email:<br>
+  <input type="text" name="firstname" >
+  <br>
+  Password:<br>
+  <input type="password" name="lastname" >
+  <br><br>
+  <input type="submit" value="Submit">
+</form> <br>
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button><br><br>
+ <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div><br>
+<!--Facebook testing-->
+<div style="display: none;" class="fb-login-button" data-width="100" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<!---->
+
+
+</center>
+ <div style="position: absolute; top:3px; right:3px;font-size: 17px; "><button style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div> </div>
+
+
+
+ 
+<div id="Popup_defier_phone" style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+	<center><form action="/action_page.php">
+	<br><br>
+  Email:<br>
+  <input type="text" name="firstname" >
+  <br>
+  Password:<br>
+  <input type="password" name="lastname" >
+  <br><br>
+  <input type="submit" value="Submit">
+</form> <br>
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button><br><br>
+ <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div><br>
+<!--Facebook testing-->
+<div style="display: none;" class="fb-login-button" data-width="100" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<!---->
+
+
+</center>
+ <div style="position: absolute; top:3px; right:3px;font-size: 13px; "><button style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div> </div>
+ </summary>
+ <summary id="phone">
+
+	<section class="navigation">
+<div class="nav-container">
+<div class="brand">
+<a href="#!">Logo</a>
+</div>
+<nav>
+<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+<ul class="nav-list">
+<li>
+<a href="#!">Home</a>
+</li>
+<li>
+<a href="#!">STEM</a>
+</li>
+<li>
+<a href="#!">Academics</a>
+<ul class="nav-dropdown">
+<li>
+<a href="#!">Example 1</a>
+ </li>
+<li>
+<a href="#!">Example 2</a>
+</li>
+<li>
+<a href="#!">Example 3</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#!">Electric Elixir</a>
+</li>
+
+</li>
+<li>
+<a href="#!">Login</a>
+</li>
+</ul>
+</nav>
+</div>
+</section>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/South_Forsyth_Main_Hall.jpg"  style="height: 220%; width: 100%;" ></article><section class="headermain ">
+          <section  class="titleWrapper">
+			   
+        <h1 style="text-align: center;" class="title1">SFHS TSA<br> Chapter</h1>
+            </section>
+        </section></img> 
+<div class="shopping_cart" style="position: relative; z-index: -4; " >
+		<p style="font-family: Arial, Helvetica, sans-serif;position: relative; top:0; margin-top: 0%;"> <center><h1>"Unity is Strength"</h1></p>
+		<br>
+		
+<aside>
+	<span>
+	<div style="float: left; position: relative; left: 4%;"><img style="width: 150%; height: 200%;" src="1.PNG"></img><br><br><br><br><br></div><br></span><span>
+	
+<h1 style="position: fixed;  bottom: 5%; color: red;"><center> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: Compatibility is still being worked upon on Phone!</center></h1>
+</summary>
+   </body>
+<script>
+	//setTimeout(function(){ document.getElementById("cool").style.transform ="scale(1.5)"; }, 3000);
+</script>
+<script id="rendered-js">
+(function ($) {// Begin jQuery
+  $(function () {// DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function (e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function () {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function () {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function () {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+//# sourceURL=pen.js
+    </script>
+   <script>
+	  
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginRight = "250px";
+   document.getElementById("yum").style.display = "none";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginRight= "0";
+     document.getElementById("yum").style.display="block";
+}
+</script>
+   <script>
+	   function close_popup() {
+		   document.getElementById("Popup_defier").style.display="none";
+   document.getElementById("weak").style.display="block";
+		   //document.getElementById("cssmenu").style.display="block";
+	   }
+	   function Popup() {
+		   document.getElementById("Popup_defier").style.display="block";
+		   document.getElementById("weak").style.display="none";
+		   //document.getElementById("cssmenu").style.display="none";
+	   }
+	</script>
+    <script>
+	
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+document.getElementById("yourself").src = profile.getImageUrl();
+document.getElementById("Popup_defier").style.opacity = '0';
+ document.getElementById("00001").style.opacity = '0';
+  document.getElementById("yum").style.display="block";
+document.getElementById("inputA").innerHTML = profile.getName();
+ document.getElementById("weak").style.display="block";
+
+ //alert(profile.getGivenName());
+      }
+    </script>
+<!--<a href="index.html" onclick="signOut();">Sign out</a>-->
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+   <script>
+//get window height minus 50 pixels for the headers height
+var height = $(window).height() - 30;
+$(".main").height(height);
+window.onresize = function(event) {
+var height = $(window).height() - 30;
+$(".main").height(height);
+};
+	</script>
+
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+<script id="rendered-js">
+      AOS.init({
+  duration: 1200 });
+      //# sourceURL=pen.js
+    </script>
+<script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
 </html>
