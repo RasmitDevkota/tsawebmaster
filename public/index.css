@@ -294,7 +294,7 @@ text-decoration : none
 }
 .headermain{
   margin: 0;
-  height: 130%; //500px
+  height: 130%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
