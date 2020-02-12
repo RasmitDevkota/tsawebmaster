@@ -146,7 +146,6 @@ text-decoration : none
 }
 .title{
  color: purple;
-  text-shadow: 3px 3px white; /*color for gold */
   font-size: 900%;
   position: relative;
   left: 40%;
