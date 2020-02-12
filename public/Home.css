@@ -139,10 +139,10 @@ text-decoration : none
 }
 .headermain{
   margin: 0;
-  height: 130%; 500px
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  //height: 130%; /500px
+ // display: flex;
+  //flex-direction: column;
+  //justify-content: space-around;
 }
 .title{
  color: #1D63DC;
@@ -206,6 +206,9 @@ canvas{
 #overlap canvas, #identification {
   position: absolute;
 }
+//canvas//
+
+//scroller//
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
 section h1 {
   position: static;
