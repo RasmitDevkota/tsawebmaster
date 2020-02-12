@@ -298,7 +298,6 @@ text-decoration : none
 }
 .title{
   color: turquoise;
-  text-shadow: 3px 3px white; /*color for gold */
   font-size: 900%;
   position: relative;
   left: -9%;
