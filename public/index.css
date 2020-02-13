@@ -357,7 +357,7 @@ body {
   overflow:hidden;
   background-image: url("images/smthn.jpg");
   background-repeat: repeat;
-  height: 100%; 
+  height: 88%; 
   z-index: 100;
 }
 .main {
@@ -398,7 +398,7 @@ section h1 {
   left: 50%;
   z-index: 2;
   display: inline-block;
-  -webkit-transform: translate(0, -50%);f
+  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
   color: #fff;
   font : normal 400 20px/1 'Josefin Sans', sans-serif;
