@@ -1,0 +1,573 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+/***
+ *                     ███████╗      ███████╗
+ *                     ██╔════╝      ██╔════╝
+ *                     █████╗        █████╗
+ *                     ██╔══╝   ██╗  ██╔══╝
+ *                     ███████╗ ╚═╝  ███████╗  
+ *         FAST        •        EASY        •        SHIPPING
+ *    report@ElectricElixir
+ *    twitter.com/ElectricElixir
+ *    fb.com/ElectricElixir                                                        
+ */
+ -->
+<html>
+
+<head>
+    <title> SFHS Chapter </title>
+    <link rel="icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx6X4yzrAlao4e7bURB5KLoRFiL9emlOrsVqAxgazePbRIQ_l8&s"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="compatibility.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+        content="145877754090-nn8s6iio8ci2jceaeg23jhe7qu4eieff.apps.googleusercontent.com">
+    <link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/footer.css">
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+    <link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/search.css">
+    <script src="https://roycearoc.github.io/VastAtlanta/search.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=455686781785989&autoLogAppEvents=1"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '455686781785989',
+                cookie: true,
+                xfbml: true,
+                version: 'v5.0',
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        function statusChangeCallback(response) {
+            if (response.status === 'connected') {
+                console.log('Logged in and Authenticated');
+                document.getElementById("Popup_defier").style.display = "none";
+                document.getElementById("00001").style.display = "none";
+                document.getElementById("yum").style.display = "block";
+                document.getElementById("weak").style.display = "block";
+                testAPI();
+            } else {
+                console.log('Not authenticated');
+                //document.getElementById("Popup_defier").style.display="block";
+                document.getElementById("00001").style.display = "block";
+                document.getElementById("yum").style.display = "none";
+            }
+        }
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        function testAPI() {
+            FB.api('/me?fields=name,email,picture.width(150).height(150)', function (response) {
+                if (response && !response.error) {
+                    console.log(response);
+                    buildProfile(response);
+                }
+            })
+        }
+        function buildProfile(user) {
+            let FBname = `${user.name}`;
+            let FBemail = `${user.email}`;
+            let FBimage = `${user.picture.data.url}`;   //this is the email -- we are not using it yet, but we will use it later
+            document.getElementById("inputA").innerHTML = FBname;
+            document.getElementById("yourself").src = FBimage;
+        }
+        function logout() {
+            //facebook logout implementation
+            FB.logout(function (response) {
+                console.log("Facebook user has successfully signed out!");
+                setElements(false);
+            });
+        }
+        function signOut() {
+
+            //googleAuth logout implementation
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+
+    <summary id="laptop">
+        <!-- Horizontal navbar on top-->
+
+        <div id='cssmenu'>
+            <ul>
+                <li>
+                    <a href='index.html'>Home</a>
+                </li>
+
+                <li class='active'>
+                    <a href='STEM.html'>Activities</a>
+                </li>
+
+                <li class='active'>
+                    <a href='SfhsTsa.html'>Our TSA Chapter</a>
+                </li>
+
+                <li class='active'>
+                    <a href='ElectricElixir.html'>Electric Elixir</a>
+                </li>
+
+                <li style="right: 0; margin-right: 57%; position: fixed;"></li>
+
+                <div>
+                    <div>
+                        <input id="leggo" onclick="setInterval(Major, 1000)" onmouseover="Change(this)"
+                            onmouseout="ReverseChange(this)"
+                            style="width: 50%; height: 45px; position: fixed; top:3; border: none; background-color: lightgrey;"
+                            type="text" placeholder="&nbsp;&nbsp;Search Our School"></input>
+
+                        <img style="height: 45px; width: 46px;position: absolute; right: 0; float: right; border: none; background-color: lightgrey;"
+                            src="https://roycearoc.github.io/VastAtlanta/images/Search.png"></img>
+                    </div>
+                </div>
+
+                <li id="00001">
+                    <a style="text-align: right; float: right; position: fixed; right: 0; margin-right: 15%;" href="#" onclick="Popup();">Login</a>
+                </li>
+            </ul>
+        </div>
+
+        <aside id="weak">
+            <header class="main">
+
+                <div class="shopping_cart" style="position: relative; z-index: -9; ">
+                    South Forsyth High School offers many activities to accommodate the students’ interests whether it is sports, academics,
+                    or the fine arts.
+                    
+                    For the students who are inclined into academics, South Forsyth offers many different types of competitive clubs. We
+                    offer Science Olympiad, Cyberpatriots, Math Team, Hosa, Academic Bowl Team, Biology Olympiad, Physics Olympiad, FBLA,
+                    and TSA.
+                    
+                    Science Olympiad, Biology Olympiad, and Physics Olympiad- Students compete with their knowledge of science. This
+                    includes a variety of science topics including creating a build for some events!
+                    
+                    Cyberpatriots- Students compete in a game like simulator. In order to gain points, the students must find
+                    vulnerabilities within the computer and fixed them. This club deals with cybersecurity.
+                    
+                    Math Team- Students compete with their math knowledge that extends more from what they do at school.
+                    
+                    Hosa- Students compete in a variety of topics within the medical field.
+                    
+                    Academic Bowl Team- Students compete in their knowledge of different topics like literature, math, history, and more!
+                    
+                    FBLA- Students compete in their knowledge in business and in cyber topics like cyber security.
+                    
+                    SPORTS
+                    
+                    Not only academic related clubs, South Forsyth High School offers sports team like soccer, tennis, football, swim and
+                    dive, track, volleyball, and dancel.
+                    
+                    FINE ARTS
+                    
+                    South Forsyth is proud to offer many fine arts activities the students can join. South Forsyth offers, band(Marching
+                    Band, Indoor Percussion, Winter Guard, Color Guard), South Improvers, South Forsyth Drama, chorus, yearbook and
+                    journalism,
+                    
+                    
+                    
+                    
+                    Engineering and Science Programs
+                    CTAE/ Career pathway: Engineering and Technology
+                    The engineering pathway gives students the basic skills and concepts needed in all fields of engineering. Students learn
+                    to work with various resources, technology, and peers to enhance creativity, the application of science and math skills,
+                    and become more proficient in logical problem solving.
+                    
+                    Teachers: Mr. Tom Wickson and Ms. Liadn Zhou
+                    Courses:
+                    Foundations of Engineering
+                    Survey Of Engineering Concepts
+                    Application of Engineering and Technology
+                    (Optional)Engineering Research Design Project Management
+                    Video made by teachers for Engineering
+                    All students in the Engineering Pathway are given the opportunity to compete in TSA. Also compete in competitive
+                    robotics (VEX, ECar, FIRST, BEST)
+                    
+                    
+                    
+                    Science Courses:
+                    Physical Science: A general course of chemistry and physics. Include concepts like the conceptualization of the
+                    structure of atoms, motion and forces, and the conservation of energy and matter, the action/reaction principle, and
+                    wave behavior.
+                    
+                    Biology and honors biology: Continuation of life sciences in K-8 and give students the skills to be proficient in
+                    biology. It includes concepts like the interdependence of organisms, the relationship of matter, energy, and
+                    organization in living systems, the behavior of organisms, and biological evolution.
+                    
+                    Chemistry and Honors Chemistry: Continuation of the physical sciences in K-8 and gives students the skills to be
+                    proficient in chemistry. It has concepts like the structure of atoms, structure and properties of matter, and the
+                    conservation and interaction of energy and matter
+                    
+                    Physics: Continuation of the physical sciences in K-8 and gives students the skills to be proficient in physics. This
+                    includes more abstract concepts like the interactions of matter and energy, velocity, acceleration, force, energy,
+                    momentum, and charge.
+                    
+                    Human Anatomy/physiology: Continuation of high school biology and investigations started in K-8. Areas of study include
+                    organization of the body; protection, support and movement; providing internal coordination and regulation; processing
+                    and transporting; and reproduction, growth and development. The course integrates careers related to medicine, research,
+                    health-care and modern medical technology and utilizes case studies concerning diseases, disorders and ailments.
+                    
+                    Epidemiology: Extends student investigations that begin in Biology. It integrates scientific investigations using real
+                    world situations to find patterns and determine causation of pathological conditions.
+                    
+                    Environmental Science: Continuation of environmental science learnt in K-8. It integrates the study of many components
+                    of our environment, including the human impact on our planet.
+                    
+                    Earth Systems: Continuation of student investigations that began in K-8 Earth Science and Life Science and investigate
+                    the connections among Earth’s systems through Earth history.
+                    
+                    Forensic science: Designed to build upon science concepts and to apply science
+                    to the investigation of crime scenes.
+                    
+                    AP Biology: The major themes of the course include molecules and cells, heredity and evolution, and organisms and
+                    populations.
+                    
+                    AP Chemistry: The major themes for this course are the structure of matter, the states of matter, reactions, descriptive
+                    chemistry, and college level chemistry laboratories.
+                    
+                    AP Physics I: The equivalent of a first-semester college course in algebra-based physics. The course covers Newtonian
+                    mechanics; work, energy, and power; and mechanical waves and sound. It will also introduce electric circuits.
+                    
+                    AP Physics C: A calculus based course that includes kinematics; Newton’s laws of motion; work, energy, and power;
+                    systems of particles and linear momentum; circular motion and rotation; and oscillations and gravitation.
+                    
+                    AP Environmental Science: The major themes for this course include Earth systems and resources, the living world,
+                    populations, land and water use, energy resources and consumption, pollution, and global change.
+                    
+                    IB Biology HL - Year one and two: Major topics for the first year of this course include statistical analysis, cells,
+                    the chemistry of life, nucleic acids and proteins, cellular respiration, photosynthesis, genetics and biotechnology.
+                    Major topics for year two include plant science, ecology, evolution, and human health and physiology.
+                    
+                    IB Chemistry SL: Major topics for this course are atomic structure, periodicity, bonding, energetics, kinetics,
+                    equilibrium, acids and bases, oxidation and reduction, organic chemistry, measurement techniques, and data processing.
+                    Optional topics include modern analytical chemistry, human biochemistry, chemistry in industry and technology, medicines
+                    and drugs, environmental chemistry, and food chemistry.
+                    
+                    IB Physics HL - Year one and two: A two-year, algebra-based introductory physics course. Requires 60 hours of laboratory
+                    work. The first year of the course includes, mostly, topics in classical mechanics. There is also a strong emphasis on
+                    the development of laboratory skills. The second year includes topics in electricity and magnetism, waves, optics,
+                    thermodynamics, and nuclear physics. The laboratory skills mastered during the first year of the course are used to
+                    complete the Internal Assessment IB requirements in the second year.
+                    
+                    Scientific research III: focuses on individual students designing and implementing original research. Each student would
+                    require a certain expertise when using necessary lab equipment, performing techniques and knowing the safety issues
+                    associated with their individual project.
+                    
+                    Scientific Research IV: Students will develop projects based on their interests. Projects at this level would be
+                    original in nature and will investigate students’ ideas to solve a particular problem. It is expected that the students
+                    will work with a university professor or in an industrial setting to find the answer to their research question.
+                    Students completing these projects are expected to present their solutions to the appropriate interests groups or in
+                    settings like the Best Robotics competitions, Siemens, the High School Engineering Competition, etc.
+
+                </div>
+
+                <article style="position: relative; top: 30%;">
+                    <div id='subject'></div>
+                    <div class="scroll-down"></div>
+                </article>
+
+                <br><br><br><br><br><br><br><br>
+
+            </header>
+
+
+
+            <footer id="footer"
+                style="z-index: -1;position: absolute; bottom:0; background-color: #333333; height: 5%; width: 100%; color: white; text-align: left;">
+                <p class="copyright">&nbsp;&nbsp;© South Forsyth High School 2020 </p>
+                <p style="float: right;"> <img id="Insta"
+                        src="https://roycearoc.github.io/VastAtlanta/images/Instagram.png"></img> <img
+                        style="position: relative; bottom: 28px;"
+                        src="https://roycearoc.github.io/VastAtlanta/images/Facebook.png"></img><img
+                        style="position: relative; bottom: 28px;"
+                        src="https://roycearoc.github.io/VastAtlanta/images/Twitter.png"></img> &nbsp; &nbsp;
+            </footer>
+
+        </aside>
+
+        <div id="Popup_defier"
+            style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+            <center>
+                <form action="/action_page.php">
+                    <br><br>
+                    Email:<br>
+                    <input type="text" name="firstname">
+                    <br>
+                    Password:<br>
+                    <input type="password" name="lastname">
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </form> <br>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button><br><br>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark">
+                </div><br>
+                <!--Facebook testing-->
+                <div style="display: none;" class="fb-login-button" data-width="100" data-size="medium"
+                    data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                <!---->
+
+
+            </center>
+            <div style="position: absolute; top:3px; right:3px;font-size: 17px; "><button
+                    style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div>
+        </div>
+
+
+
+
+        <div id="Popup_defier_phone"
+            style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+            <center>
+                <form action="/action_page.php">
+                    <br><br>
+                    Email:<br>
+                    <input type="text" name="firstname">
+                    <br>
+                    Password:<br>
+                    <input type="password" name="lastname">
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </form> <br>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button><br><br>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark">
+                </div><br>
+                <!--Facebook testing-->
+                <div style="display: none;" class="fb-login-button" data-width="100" data-size="medium"
+                    data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                <!---->
+
+
+            </center>
+            <div style="position: absolute; top:3px; right:3px;font-size: 13px; "><button
+                    style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div>
+        </div>
+    </summary>
+    <summary id="phone">
+
+        <section class="navigation">
+            <div class="nav-container">
+                <div class="brand">
+                    <a href="#!">Logo</a>
+                </div>
+                <nav>
+                    <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#!">Home</a>
+                        </li>
+                        <li>
+                            <a href="#!">STEM</a>
+                        </li>
+                        <li>
+                            <a href="#!">Academics</a>
+                            <ul class="nav-dropdown">
+                                <li>
+                                    <a href="#!">Example 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Example 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Example 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!">Electric Elixir</a>
+                        </li>
+
+                        </li>
+                        <li>
+                            <a href="#!">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/South_Forsyth_Main_Hall.jpg"
+            style="height: 220%; width: 100%;"></article>
+        <section class="headermain ">
+            <section class="titleWrapper">
+
+                <h1 style="text-align: center;" class="title1">SFHS TSA<br> Chapter</h1>
+            </section>
+        </section></img>
+        <div class="shopping_cart" style="position: relative; z-index: -4; ">
+            <p style="font-family: Arial, Helvetica, sans-serif;position: relative; top:0; margin-top: 0%;">
+                <center>
+                    <h1>"Unity is Strength"</h1>
+            </p>
+            <br>
+
+            <aside>
+                <span>
+                    <div style="float: left; position: relative; left: 4%;"><img style="width: 150%; height: 200%;"
+                            src="1.PNG"></img><br><br><br><br><br></div><br>
+                </span><span>
+
+                    <h1 style="position: fixed;  bottom: 5%; color: red;">
+                        <center> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: Compatibility is still being worked upon on Phone!
+                        </center>
+                    </h1>
+    </summary>
+</body>
+<script>
+	//setTimeout(function(){ document.getElementById("cool").style.transform ="scale(1.5)"; }, 3000);
+</script>
+<script id="rendered-js">
+    (function ($) {// Begin jQuery
+        $(function () {// DOM ready
+            // If a link has a dropdown, add sub menu toggle.
+            $('nav ul li a:not(:only-child)').click(function (e) {
+                $(this).siblings('.nav-dropdown').toggle();
+                // Close one dropdown when selecting another
+                $('.nav-dropdown').not($(this).siblings()).hide();
+                e.stopPropagation();
+            });
+            // Clicking away from dropdown will remove the dropdown class
+            $('html').click(function () {
+                $('.nav-dropdown').hide();
+            });
+            // Toggle open and close nav styles on click
+            $('#nav-toggle').click(function () {
+                $('nav ul').slideToggle();
+            });
+            // Hamburger to X toggle
+            $('#nav-toggle').on('click', function () {
+                this.classList.toggle('active');
+            });
+        }); // end DOM ready
+    })(jQuery); // end jQuery
+//# sourceURL=pen.js
+</script>
+<script>
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginRight = "250px";
+        document.getElementById("yum").style.display = "none";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+        document.getElementById("yum").style.display = "block";
+    }
+</script>
+<script>
+    function close_popup() {
+        document.getElementById("Popup_defier").style.display = "none";
+        document.getElementById("weak").style.display = "block";
+        //document.getElementById("cssmenu").style.display="block";
+    }
+    function Popup() {
+        document.getElementById("Popup_defier").style.display = "block";
+        document.getElementById("weak").style.display = "none";
+        //document.getElementById("cssmenu").style.display="none";
+    }
+</script>
+<script>
+
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+        document.getElementById("yourself").src = profile.getImageUrl();
+        document.getElementById("Popup_defier").style.opacity = '0';
+        document.getElementById("00001").style.opacity = '0';
+        document.getElementById("yum").style.display = "block";
+        document.getElementById("inputA").innerHTML = profile.getName();
+        document.getElementById("weak").style.display = "block";
+
+        //alert(profile.getGivenName());
+    }
+</script>
+<!--<a href="index.html" onclick="signOut();">Sign out</a>-->
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+<script>
+    //get window height minus 50 pixels for the headers height
+    var height = $(window).height() - 30;
+    $(".main").height(height);
+    window.onresize = function (event) {
+        var height = $(window).height() - 30;
+        $(".main").height(height);
+    };
+</script>
+
+<script
+    src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+<script id="rendered-js">
+    AOS.init({
+        duration: 1200
+    });
+      //# sourceURL=pen.js
+</script>
+<script
+    src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+<script>
+    window.console = window.console || function (t) { };
+</script>
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+    }
+</script>
+
+</html>

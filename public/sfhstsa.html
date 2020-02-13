@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+/***
+ *                     ███████╗      ███████╗
+ *                     ██╔════╝      ██╔════╝
+ *                     █████╗        █████╗
+ *                     ██╔══╝   ██╗  ██╔══╝
+ *                     ███████╗ ╚═╝  ███████╗  
+ *         FAST        •        EASY        •        SHIPPING
+ *    report@ElectricElixir
+ *    twitter.com/ElectricElixir
+ *    fb.com/ElectricElixir                                                        
+ */
+ -->
+<html>
+	<head>
+		<title> SFHS Chapter </title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx6X4yzrAlao4e7bURB5KLoRFiL9emlOrsVqAxgazePbRIQ_l8&s" type="image/x-icon" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="compatibility.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="145877754090-nn8s6iio8ci2jceaeg23jhe7qu4eieff.apps.googleusercontent.com">
+		<link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/footer.css">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+    <link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/search.css">
+        <script src="https://roycearoc.github.io/VastAtlanta/search.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet">
+
+	</head>
+<body>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=455686781785989&autoLogAppEvents=1"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '455686781785989',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v5.0',
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+function statusChangeCallback(response){
+	if(response.status === 'connected'){
+		console.log('Logged in and Authenticated');
+		document.getElementById("Popup_defier").style.display="none";
+	    document.getElementById("00001").style.display="none";
+        document.getElementById("yum").style.display="block";
+		 document.getElementById("weak").style.display="block";
+		testAPI();
+	} else {
+		console.log('Not authenticated');
+		//document.getElementById("Popup_defier").style.display="block";
+	    document.getElementById("00001").style.display="block";
+        document.getElementById("yum").style.display="none";
+	}
+}
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+function testAPI() {
+	FB.api('/me?fields=name,email,picture.width(150).height(150)', function(response){
+		if(response && !response.error){
+		   console.log(response);
+			buildProfile(response);
+		}
+	})
+}
+function buildProfile(user) {
+	let FBname = `${user.name}`;
+	let FBemail = `${user.email}`;
+	let FBimage = `${user.picture.data.url}`;   //this is the email -- we are not using it yet, but we will use it later
+	document.getElementById("inputA").innerHTML = FBname;
+	document.getElementById("yourself").src = FBimage;
+}
+function logout() {
+	  //facebook logout implementation
+	FB.logout(function(response){
+		console.log("Facebook user has successfully signed out!");
+		setElements(false);
+	});
+}
+ function signOut() {
+  
+    //googleAuth logout implementation
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+<summary id="laptop">
+<!-- Horizontal navbar on top-->
+
+<div id='cssmenu'> 
+ <ul>
+
+  <li>
+    <a href='index.html'>Home</a>
+  </li>
+
+  <li class='active'>
+    <a href='STEM.html'>Activities</a>
+  </li>
+
+  <li class='active'>
+    <a href='SfhsTsa.html'>Our TSA Chapter</a>
+  </li>
+
+  <li class='active'>
+    <a href='ElectricElixir.html'>Electric Elixir</a>
+  </li>
+
+  <li style="right: 0; margin-right: 57%; position: fixed;"></li>
+
+  <div>
+  <div> <input id="leggo" onclick="setInterval(Major, 1000)" onmouseover="Change(this)" onmouseout="ReverseChange(this)" style="width: 50%; height: 45px; position: fixed; top:3; border: none; background-color: lightgrey;" type="text" placeholder="&nbsp;&nbsp;Search Our School" ></input>
+ 
+ <img style="height: 45px; width: 46px;position: absolute; right: 0; float: right; border: none; background-color: lightgrey;" src="https://roycearoc.github.io/VastAtlanta/images/Search.png"></img>
+</div>
+ 
+    
+</div>
+   </li>
+   <li id="00001">
+	   <a style="text-align: right; float: right; position: fixed; right: 0; margin-right: 15%;" href="#" onclick="Popup();">Login</a>
+   </li>
+	 <div id="main" ID="00002" >
+		 <li id="00002" >
+			 <a id="yum" style="display: none; align: right; float: right; position: fixed; right:0;" href="#" onclick="Popup123();">
+				 <button id="yum" class="openbtn" style="position: fixed; top:3px; right: 3px;" onclick="openNav()">☰      
+				 </button> 
+			 </a>
+		 </li>
+	 </div>
+</ul>
+
+<div style="z-index: 100000000000000000000000;" id="mySidebar" class="sidebar">
+  <a style="position: relative;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <p style="text-align: center;"> <i> Signed in as </i></p><br><p style="text-align: center; font-size: 20px; color: white;" id="inputA"></p>
+  <div class="hover08 column">
+    <div>
+     <figure><a href="#"><img id="yourself" src="" style="width:70%; height: 70%;"></img></a></figure>
+    </div>
+  </div>
+  <a href="cart.html">Your Cart</a>
+  <a href="PastOrders.html">Past Orders</a>
+  <a href="https://vast--roycea.repl.co/">Forum</a>
+  <a href="#">Reviews</a>
+  <a href="index.html" onclick="signOut();logout();">Sign out</a>
+</div>
+</div>
+
+<aside id="weak">
+      <header class="main">
+	  
+        <div class="shopping_cart" style="position: relative; z-index: -9; " >
+                <p style="font-family: Arial, Helvetica, sans-serif;position: relative; top:0; margin-top: 0%;"> <center><h1>"Unity is Strength"</h1></p>
+                <br>
+                
+        <aside>
+            <span>
+            <div style="float: left; position: relative; left: 4%;"><img style="width: 90%; height: 100%;" src="images/1.PNG"></img></div></span><span>
+            <div style="width: 47%; height: 40%; margin-right: 7%;float: right; position: relative; right: 0px;font-size: 100%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"> About TSA </h1> The Technology Student Association (TSA) is a national, non-profit career and technical student organization (CTSO) of middle and high school students who are engaged in science, technology, engineering, and mathematics (STEM). Since TSA was chartered in 1978, almost 4,000,000 student members have participated through competitions, intracurricular activities, leadership opportunities, community service, and more.TSA chapters take the study of STEM beyond the classroom and give students the chance to pursue academic challenges among friends with similar goals and interests. Together, TSA chapter members work on competitive events, learn and apply leadership skills, and may attend conferences at the state, regional, and national levels. TSA chapters also are committed to a national service project and are among the most service-oriented groups in the community.
+
+        </aside>
+
+        <aside style="position: abosolute; bottom:0; width: 80%;">
+        <span>
+            <br><br><br><br>
+            <center><br><br><br><br><br><br>
+            <div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br><br><br><br>&nbsp; &nbsp; &nbsp;🏆&nbsp;TSA Competitions&nbsp;🏆 </h1> Imagine an activity so captivating that your students spend hours working on it for weeks at a time. That is what can happen when TSA members engage in TSA competitions. Only TSA members have the opportunity to compete at exciting state conferences and then at the annual National TSA Conference. Expert judging by technology and engineering educators and industry representatives inspires the best from participants. Members are rewarded not only with medals or trophies, but also with memories of camaraderie and the challenge of participating in a National TSA Conference.
+        <br><br>
+        TSA competitions include categories such as Biotechnology Design, Career Prep, Coding, CompTIA ITF+ Certification, Cybersecurity, Digital Photography, Dragster Design, Flight, Leadership Strategies, Medical Technology, Prepared Presentation, Software Development, Technology Problem Solving, Video Game Design, Webmaster, and much more.
+        </center>
+        </aside>
+
+
+        <aside style="position: abosolute; width: 80%;">
+        <span>
+            
+            <center>
+            <div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;📜 &nbsp;Curriculum Integration&nbsp; 📜</h1> Education directives at the federal and state levels focus on providing avenues for initiatives such as STEM education. As a career and technical student organization (CTSO), TSA helps teachers meet the criteria for STEM education goals through exciting programs that include activities, competitions, leadership, and teamwork for students. In addition, all TSA activities are correlated to the Standards for Technological Literacy, as set forth by the International Technology and Engineering Educators Association (ITEEA). Teachers can use TSA activities during the school day in their classroom, and extend the learning beyond the classroom through a TSA chapter.
+
+        </center>
+        </aside>
+
+        <aside style="position: abosolute; width: 80%;">
+        <span>
+            
+            <center>
+            <div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;🥇 &nbsp;Mission Statement&nbsp; 🥇</h1> The Technology Student Association (TSA)enhances personal development, leadership, and career opportunities in science, technology, engineering, and math (STEM), whereby members apply and integrate these concepts through intracurricular activities,  competitions, and related programs.
+
+        </center>
+        </aside>
+        <aside style="position: abosolute; width: 80%;">
+        <span>
+            
+            <center>
+            <div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;👁️&nbsp;Vision Statement&nbsp; 👁️</h1> TSA is accelerating student achievement and supporting teachers by providing engaging opportunities to develop STEM skills.
+
+
+        </center>
+        </aside>
+        <aside style="position: abosolute; width: 80%;">
+        <span>
+            
+            <center>
+            <div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;🎤&nbsp;Motto&nbsp; 🎤</h1> Learning to lead in a technical world.
+
+
+
+        </center>
+        </aside>
+
+        <aside style="position: abosolute; width: 80%;">
+        <span>
+            <center>
+                <div style="font-size: 112.5%; font-family: Lucida Sans Unicode", "Lucida Grande", sans-serif;""><p ><h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;📝&nbsp;Creed&nbsp; 📝</h1> I believe that Technology Education holds an important place in my life in the technical world. I believe there is a need for the development of good attitudes concerning work, tools, materials, experimentation, and processes of industry. Guided by my teachers, artisans from industry, and my own initiative, I will strive to do my best in making my school, community, state, and nation better places in which to live.<br><br>I will accept the responsibilities that are mine. I will accept the theories that are supported by proper evidence. I will explore on my own for safer, more effective methods of working and living. I will strive to develop a cooperative attitude and will exercise tact and respect for other individuals. Through the work of my hands and mind, I will express my ideas to the best of my ability. I will make it my goal to do better each day the task before me, and to be steadfast in my belief in my God, and my fellow Americans.
+            </center>
+        </aside>
+
+        <aside style="position: abosolute; width: 80%;">
+            <span>
+                <center>
+                    <div style="font-size: 112.5%; font-family: Lucida Sans Unicode" , "Lucida Grande" , sans-serif;"">
+                        <p>
+                            <h1 style="text-align: center;"><br>&nbsp; &nbsp; &nbsp;📝&nbsp;South Forsyth High School's State Awards&nbsp; 📝</h1>
+                            2019 Awards <br>
+                            3D Animation- 6th place<br>
+                            Animatronics- 3rd place<br>
+                            Chapter Team- 5th place<br>
+                            Children’s Story- 5th place<br>
+                            Coding- 3rd place<br>
+                            Computer Integrated Manufacturing- 8th place<br>
+                            Debating Technological Issues- 1st place<br>
+                            Electrical Applications- 1st place<br>
+                            Fashion Design and Technology- 10th place<br>
+                            Flight Endurance- 5th place<br>
+                            Future Technology Teacher-6th place<br>
+                            Scientific Visualization-2nd Place<br>
+                            Software Development-6th place<br>
+                            Structural Design and Engineering-6th place<br>
+                            System Control Technology-2nd place<br>
+                            Technology Bowl-9th place<br>
+                            Technology Bowl Written- 1st and 4th place<br>
+                            Transportation Modeling-6th place<br>
+                            Video Game Design-10th place<br>
+                            <br>
+                            2019 Overall Chapter: 3rd place<br>
+                            <br><br>
+                            2018 Awards<br>
+                            Animatronics: 10th place<br>
+                            Biotechnology Design: 3rd place<br>
+                            Chapter Team-6th place<br>
+                            Coding-9th place<br>
+                            Computer Integrated Manufacturing: 6th place<br>
+                            Debating Technological Issues-1st place<br>
+                            Dragster Design-9th place<br>
+                            Engineering Design-2nd place<br>
+                            Fashion Design and Technology-1st place<br>
+                            Flight Endurance-4th place<br>
+                            Future Technology Teacher-8th place<br>
+                            GA Electrathon Rally-3rd place<br>
+                            On Demand Video- 3rd place<br>
+                            Promotional Design-2nd place<br>
+                            Scientific Visualization-1st place<br>
+                            Software Development-1st place<br>
+                            Stem Careers- 5th place<br>
+                            System Control Technology-1st place<br>
+                            Video Game Design-8th place<br>
+                            <br>
+                            2018 Overall Chapter- 2nd place<br>
+                            <br><br>
+                            2017 Awards<br>
+                            3D Animation-1st<br>
+                            Animatronics-3rd<br>
+                            Architectural Design-4th<br>
+                            Biotechnology Design-2nd<br>
+                            Chapter Team-2nd<br>
+                            Children’s Story-5th<br>
+                            Computer Integrated Manufacturing-1st<br>
+                            Computer-Aided Design-Architecture-6th<br>
+                            Debating Technological Issues-4th<br>
+                            Dragster Design-5th<br>
+                            Electrical Applications-2nd<br>
+                            Engineering Design-1st<br>
+                            Fashion Design and Technology-3rd place<br>
+                            Future Technology Teacher-10th<br>
+                            Music Production-2nd<br>
+                            On Demand Video-4th<br>
+                            Outstanding Student-5th place<br>
+                            Photographic Technology-7th place<br>
+                            Prepared Presentation-9th<br>
+                            Promotional Design-2nd<br>
+                            Scientific Visualization-1st<br>
+                            Software Development-3rd<br>
+                            Stem Careers-5th<br>
+                            System Control Technology-1st<br>
+                            Transportation Modeling-9th<br>
+                            Video Game Design-4th<br>
+                            <br>
+                            2017 Overall Chapter: 1st<br>
+                            <br><br>
+                            
+                            2016 Awards<br>
+                            Animatronics-7th<br>
+                            Architectural Renovation-6th<br>
+                            Career Preparation-1st<br>
+                            Chapter Team-6th<br>
+                            Children’s Stories- 1st<br>
+                            Computer Numerical Control Production-4th<br>
+                            Computer-Aided Design 2D-4th place<br>
+                            Debating Technological Issues-4th<br>
+                            Electrathon Rally-1st<br>
+                            Electrical Applications-5th<br>
+                            Extemporaneous Speech-3rd<br>
+                            Fashion Design-2nd<br>
+                            Flight Endurance-5th<br>
+                            Future Technology Teacher-6th<br>
+                            Manufacturing Prototype-6th<br>
+                            Music Production-2nd<br>
+                            Outstanding Student-4th<br>
+                            Photographic Technology-7th<br>
+                            Prepared Presentation-4th<br>
+                            Promotional Graphics-4th and 5th<br>
+                            SciVis-3rd<br>
+                            Software Development-1st<br>
+                            System Control Technology-5th<br>
+                            Technology Bowl-7th<br>
+                            Technology Bowl Written-2nd<br>
+                            Transportation Modeling-1st<br>
+                            Video Game Design-2nd<br>
+                            Webmaster-1st<br>
+                            Vex Robotics- 1st<br>
+                            <br><br>
+                            2016 Awards<br>
+                            Animatronics-4th<br>
+                            Architectural Renovation-4th<br>
+                            Biotechnology Design-5th<br>
+                            Career Preparation-2nd<br>
+                            Chapter Team-2nd<br>
+                            Computer Numerical Control(CNC) Production- 2nd<br>
+                            Debating Technological Issues-1st<br>
+                            Electrical Applications-6th<br>
+                            Engineering Design-3rd<br>
+                            Fashion Design-3rd<br>
+                            Flight Endurance-1st<br>
+                            Future Technology Teacher-4th<br>
+                            Manufacturing Prototype-8th<br>
+                            Software Development-2nd<br>
+                            Photographic Technology-2nd<br>
+                            Promotional Graphics-10th<br>
+                            SciVis-5th<br>
+                            Structural Engineering-6th<br>
+                            Systems Control Technology-4th<br>
+                            Electrathon Rally-6th<br>
+                            Video Game Design-1st<br>
+                            Webmaster-1st<br>
+                            <br>
+                            2014 Awards<br>
+                            Animatronics- 4th<br>
+                            Architectural Renovation-10th<br>
+                            Biotechnology Design-5th<br>
+                            Career Preparation-1st<br>
+                            Chapter Team-3rd<br>
+                            Computer Aided Design 2D Architecture-2nd<br>
+                            Computer Aided Design 3D Engineering-10th<br>
+                            Computer Numerical Control Production-2nd<br>
+                            Desktop Publishing-1st<br>
+                            Digital Video Production-8th<br>
+                            Electrical Applications-3rd<br>
+                            Engineering Design-7th<br>
+                            Extemporaneous Speech-7th<br>
+                            Fashion Design-6th<br>
+                            Flight Endurance-10th<br>
+                            Future Technology Teacher- 1st and 3rd<br>
+                            Music Production-8th<br>
+                            Open Source Software Development-2nd<br>
+                            Outstanding Student-6th<br>
+                            Photographic Technology-9th<br>
+                            Prepared Presentation-5th<br>
+                            Promotional Graphics-2nd<br>
+                            SciVis-2nd<br>
+                            Systems Control Technology-10th<br>
+                            Technology Bowl-10th<br>
+                            Technology Problem Solving-10th<br>
+                            Transportation Model-9th<br>
+                            Vex Robotics-8th<br>
+                            Video Game Design-7th<br>
+                            
+                            <br>
+                            2013 Awards<br>
+                            Animatronics-5th<br>
+                            Architectural Renovation-7th<br>
+                            Biotechnology Design-6th<br>
+                            Computer Aided Design 2D Architecture-2nd<br>
+                            Computer Numerical Control Production-4th<br>
+                            Debating Technological Issues-7th<br>
+                            Desktop Publishing-1st<br>
+                            Digital Video Production-1st<br>
+                            Electrical Application-6th<br>
+                            Engineering Design-10th<br>
+                            Extemporaneous Speech-4th<br>
+                            Fashion Design-3rd<br>
+                            Future Technology Teacher-1st<br>
+                            Open Source Software Development-4th<br>
+                            Photographic Technology-4th<br>
+                            Prepared Presentation-3rd<br>
+                            Promotional Graphics-8th<br>
+                            SciVis-6th<br>
+                            Systems Control Technology-9th<br>
+                            Transportation Modeling-7th and 8th<br>
+                            Vex Robotics-3rd and 8th<br>
+                            Video Game Design-1st<br>
+                            Webmaster-1st<br>
+                </center>
+        </aside>
+        </div>
+
+        <article style="position: relative; top: 30%;">
+            <div id='subject'></div>
+            <div class="scroll-down"></div>
+        </article>
+
+        <br><br><br><br><br><br><br><br>
+
+      </header>
+	
+
+
+        <footer id="footer" style="z-index: -1;position: absolute; bottom:0; background-color: #333333; height: 5%; width: 100%; color: white; text-align: left;"> <p class="copyright" >&nbsp;&nbsp;© South Forsyth High School 2020 </p> <p style="float: right;"> <img id="Insta" src="https://roycearoc.github.io/VastAtlanta/images/Instagram.png"></img> <img style="position: relative; bottom: 28px;" src="https://roycearoc.github.io/VastAtlanta/images/Facebook.png"></img><img style="position: relative; bottom: 28px;" src="https://roycearoc.github.io/VastAtlanta/images/Twitter.png"></img> &nbsp; &nbsp;
+        </footer>
+
+</aside>
+
+<div id="Popup_defier" style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+	<center><form action="/action_page.php">
+	<br><br>
+  Email:<br>
+  <input type="text" name="firstname" >
+  <br>
+  Password:<br>
+  <input type="password" name="lastname" >
+  <br><br>
+  <input type="submit" value="Submit">
+</form> <br>
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button><br><br>
+ <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div><br>
+<!--Facebook testing-->
+<div style="display: none;" class="fb-login-button" data-width="100" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<!---->
+
+
+</center>
+ <div style="position: absolute; top:3px; right:3px;font-size: 17px; "><button style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div> </div>
+
+
+
+ 
+<div id="Popup_defier_phone" style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+	<center><form action="/action_page.php">
+	<br><br>
+  Email:<br>
+  <input type="text" name="firstname" >
+  <br>
+  Password:<br>
+  <input type="password" name="lastname" >
+  <br><br>
+  <input type="submit" value="Submit">
+</form> <br>
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button><br><br>
+ <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div><br>
+<!--Facebook testing-->
+<div style="display: none;" class="fb-login-button" data-width="100" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<!---->
+
+
+</center>
+ <div style="position: absolute; top:3px; right:3px;font-size: 13px; "><button style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div> </div>
+ </summary>
+ <summary id="phone">
+
+	<section class="navigation">
+<div class="nav-container">
+<div class="brand">
+<a href="#!">Logo</a>
+</div>
+<nav>
+<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+<ul class="nav-list">
+<li>
+<a href="#!">Home</a>
+</li>
+<li>
+<a href="#!">STEM</a>
+</li>
+<li>
+<a href="#!">Academics</a>
+<ul class="nav-dropdown">
+<li>
+<a href="#!">Example 1</a>
+ </li>
+<li>
+<a href="#!">Example 2</a>
+</li>
+<li>
+<a href="#!">Example 3</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#!">Electric Elixir</a>
+</li>
+
+</li>
+<li>
+<a href="#!">Login</a>
+</li>
+</ul>
+</nav>
+</div>
+</section>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/South_Forsyth_Main_Hall.jpg"  style="height: 220%; width: 100%;" ></article><section class="headermain ">
+          <section  class="titleWrapper">
+			   
+        <h1 style="text-align: center;" class="title1">SFHS TSA<br> Chapter</h1>
+            </section>
+        </section></img> 
+<div class="shopping_cart" style="position: relative; z-index: -4; " >
+		<p style="font-family: Arial, Helvetica, sans-serif;position: relative; top:0; margin-top: 0%;"> <center><h1>"Unity is Strength"</h1></p>
+		<br>
+		
+<aside>
+	<span>
+	<div style="float: left; position: relative; left: 4%;"><img style="width: 150%; height: 200%;" src="1.PNG"></img><br><br><br><br><br></div><br></span><span>
+	
+<h1 style="position: fixed;  bottom: 5%; color: red;"><center> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: Compatibility is still being worked upon on Phone!</center></h1>
+</summary>
+   </body>
+<script>
+	//setTimeout(function(){ document.getElementById("cool").style.transform ="scale(1.5)"; }, 3000);
+</script>
+<script id="rendered-js">
+(function ($) {// Begin jQuery
+  $(function () {// DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function (e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function () {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function () {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function () {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+//# sourceURL=pen.js
+    </script>
+   <script>
+	  
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginRight = "250px";
+   document.getElementById("yum").style.display = "none";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginRight= "0";
+     document.getElementById("yum").style.display="block";
+}
+</script>
+   <script>
+	   function close_popup() {
+		   document.getElementById("Popup_defier").style.display="none";
+   document.getElementById("weak").style.display="block";
+		   //document.getElementById("cssmenu").style.display="block";
+	   }
+	   function Popup() {
+		   document.getElementById("Popup_defier").style.display="block";
+		   document.getElementById("weak").style.display="none";
+		   //document.getElementById("cssmenu").style.display="none";
+	   }
+	</script>
+    <script>
+	
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+document.getElementById("yourself").src = profile.getImageUrl();
+document.getElementById("Popup_defier").style.opacity = '0';
+ document.getElementById("00001").style.opacity = '0';
+  document.getElementById("yum").style.display="block";
+document.getElementById("inputA").innerHTML = profile.getName();
+ document.getElementById("weak").style.display="block";
+
+ //alert(profile.getGivenName());
+      }
+    </script>
+<!--<a href="index.html" onclick="signOut();">Sign out</a>-->
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+   <script>
+//get window height minus 50 pixels for the headers height
+var height = $(window).height() - 30;
+$(".main").height(height);
+window.onresize = function(event) {
+var height = $(window).height() - 30;
+$(".main").height(height);
+};
+	</script>
+
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+<script id="rendered-js">
+      AOS.init({
+  duration: 1200 });
+      //# sourceURL=pen.js
+    </script>
+<script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+</html>
