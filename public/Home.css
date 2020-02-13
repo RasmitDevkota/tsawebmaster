@@ -195,7 +195,7 @@ body, html {
 }
 body {
 overflow:hidden;
-  background-image: url("httimages/smthn.jpg");
+  background-image: url("images/smthn.jpg");
   background-repeat: repeat;
   z-index: 100;
 
