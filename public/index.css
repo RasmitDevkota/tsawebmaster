@@ -357,7 +357,6 @@ body {
   overflow:hidden;
   background-image: url("images/smthn.jpg");
   background-repeat: repeat;
-  
   height: 88%; 
   z-index: 100;
 }
