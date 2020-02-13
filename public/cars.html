@@ -1,0 +1,425 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+/***
+ *                  ██╗        ██║ ██████╗ ████████╗
+ *                   ██╗      ██║  ██╔═══╝ ╚══██╔══╝
+ *                    ██╗    ██║   ███████╗   ██║   
+ *                      ██╗ ██║    ╚════██║   ██║   
+ *                        ██║      ███████║   ██║   
+ *                       
+ *         FAST        •        EASY        •        SHIPPING  
+ *    report@VastAtlanta.com
+ *    twitter.com/VastAtlanta
+ *    fb.com/VastAtlanta                                                        
+ */
+ -->
+<html>
+
+<head>
+    <title> Vast Atlanta </title>
+    <link rel="icon" href="images/Favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="compatibility1.css">
+    <link rel="stylesheet" type="text/css" href="Home.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+        content="145877754090-nn8s6iio8ci2jceaeg23jhe7qu4eieff.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css'>
+    <link rel="stylesheet" type="text/css" href="https://roycearoc.github.io/VastAtlanta/search.css">
+    <script src="https://roycearoc.github.io/VastAtlanta/search.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=455686781785989&autoLogAppEvents=1"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '455686781785989',
+                cookie: true,
+                xfbml: true,
+                version: 'v5.0',
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        function statusChangeCallback(response) {
+            if (response.status === 'connected') {
+                console.log('Logged in and Authenticated');
+                document.getElementById("Popup_defier").style.display = "none";
+                document.getElementById("00001").style.display = "none";
+                document.getElementById("yum").style.display = "block";
+                document.getElementById("weak").style.display = "block";
+                testAPI();
+            } else {
+                console.log('Not authenticated');
+                //document.getElementById("Popup_defier").style.display="block";
+                document.getElementById("00001").style.display = "block";
+                document.getElementById("yum").style.display = "none";
+            }
+        }
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        function testAPI() {
+            FB.api('/me?fields=name,email,picture.width(150).height(150)', function (response) {
+                if (response && !response.error) {
+                    console.log(response);
+                    buildProfile(response);
+                }
+            })
+        }
+        function buildProfile(user) {
+            let FBname = `${user.name}`;
+            let FBemail = `${user.email}`;
+            let FBimage = `${user.picture.data.url}`;   //this is the email -- we are not using it yet, but we will use it later
+            document.getElementById("inputA").innerHTML = FBname;
+            document.getElementById("yourself").src = FBimage;
+
+
+        }
+        function logout() {
+            //facebook logout implementation
+            FB.logout(function (response) {
+                console.log("Facebook user has successfully signed out!");
+                setElements(false);
+            });
+        }
+        function signOut() {
+
+            //googleAuth logout implementation
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+    <!-- Horizontal navbar on top-->
+
+    <div id='cssmenu'>
+        <ul>
+
+            <li></li>
+
+            <li><a href='index.html'>Home</a></li>
+
+            <li class='active'><a href='Cars.html'>Cars</a></li>
+
+            <li>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </li>
+
+            <li>
+                <div>
+                    <div> <input id="leggo" onclick="setInterval(Major, 1000)" onmouseover="Change(this)"
+                            onmouseout="ReverseChange(this)"
+                            style="width: 50%; height: 45px; position: fixed; top:3; border: none; background-color: lightgrey;"
+                            type="text" placeholder="&nbsp;&nbsp;Search"></input>
+
+                        <img style="height: 45px; width: 46px;position: absolute; right: 0; float: right; border: none; background-color: lightgrey;"
+                            src="https://roycearoc.github.io/VastAtlanta/images/Search.png"></img>
+                    </div>
+                </div>
+            </li>
+
+            <li id="00001">
+                <a style="align: right; float: right; position: fixed; right:0; " href="#" onclick="Popup();">Login</a>
+            </li>
+        </ul>
+    </div>
+
+    <aside id="weak">
+        <header class="main">
+            <div class="bg">
+                <div class="bg2">
+                    <section class="headermain ">
+                        <section class="titleWrapper">
+
+                            <h1 data-aos="zoom-out" class="title">Electric Elixir</h1>
+                        </section>
+                    </section>
+                    <!--Searchbar list--><br><br>
+
+                    <section>
+                        <div class="uis-container">
+                            <div data-aos="fade-left">
+
+                                <div class="uis-form-wrapper">
+                                    <i style="zoom: 300%; margin-left: none;"
+                                        class="uis-form-icon uis-point material-icons md-2x">search</i>
+                                    <input style="zoom: 200%; width: 300px;" class="uis-input" type="search">
+                                </div>
+                            </div>
+                        </div>
+
+                        <script id="rendered-js">
+                            $('.uis-form-icon').on('click', function () {
+                                $(this).addClass('uis-active');
+
+                                $(this).siblings('input').addClass('uis-active');
+                                $(this).siblings('input').focus();
+
+                                $(this).siblings('input').focusout(function (e) {
+                                    $(this).removeClass('uis-active');
+                                    $(this).siblings('i').removeClass('uis-active');
+                                    $(this).val('');
+                                });
+                            });
+                        </script>
+
+                </div>
+                
+                <div class="shopping_cart" style="position: relative; margin-top: 10%; width: 80%; margin-left: 8%;">
+                    Car Model 1:<br>
+                    Name: Archer<br>
+                    Colors: Jet Black, White, Dark Gray<br>
+                    Description: Faster than bandit with same battery storage. Faster meaning higher max speed and acceleration. Best
+                    for
+                    the highway. Solar panels to charge while away from a charger.<br>
+                    Price: $41,000<br>
+                    <img src="images/charger.png"><img src="images/charger.png"><img src="images/charger.png"><img src="images/charger.png">
+                </div>
+                <div class="shopping_cart" style="position: relative; margin-top: 10%; width: 80%; margin-left: 8%;">
+                    Car Model 2:<br>
+                    Name: Bandit<br>
+                    Colors: Light Gray, Jet Black, Light Gray, White<br>
+                    Description: More power/torque than the archer, but same battery power. Better for off-road driving. Solar panels on top for charging
+                    while away from a charging station. Bigger for more passengers/storage.
+                    the highway. Solar panels to charge while away from a charger.<br>
+                    Price: $43,000<br>
+                    <img src="images/charger.png"><img src="images/charger.png"><img src="images/charger.png"><img src="images/charger.png"><img src="images/charger.png">
+                </div>
+                <div class="shopping_cart" style="position: relative; margin-top: 10%; width: 80%; margin-left: 8%;">
+                    Car Model 3:<br>
+                    Name: Arrow<br>
+                    Colors: Red, White<br>
+                    Description: Cheaper alternative to the archer. Less battery than the archer. Not as fast as the archer, and about the same speed as
+                    the bandit. Best for everyday use. No solar panels.
+                    the highway. Solar panels to charge while away from a charger.<br>
+                    Price: $33,500<br>
+                    <img src="images/charger.png"><img src="images/charger.png">
+                </div>
+
+                <div class="shopping_cart" style="position: relative; margin-top: 10%; width: 80%; margin-left: 8%;">
+                    <h1>Charger</h1>
+                    <img src="images/charger.png">
+                </div>
+
+                <aside class="lick">
+                    <div data-aos="fade-left" class="shopping_cart" style="position: static; z-index: 100000000;">
+                        <a href="cart.html"></a>
+                    </div>
+
+                    <br><br><br><br><br>
+                    <br><br><br><br><br><br>
+
+                </aside>
+
+        </header>
+
+        </div>
+
+        </section>
+
+        </div>
+
+        <p style="color: white;" id="subject"></p>
+
+        <footer id="footer"
+            style="z-index: -4;position: absolute; bottom:0; background-color: #333333; height: 5%; width: 100%; color: white; text-align: left;">
+            <p class="copyright">&nbsp;&nbsp;© Electric Elixir 2020 </p>
+            <p style="float: right;"> <img id="Insta"
+                    src="https://roycearoc.github.io/VastAtlanta/images/Instagram.png"></img> <img
+                    style="position: relative; bottom: 28px;"
+                    src="https://roycearoc.github.io/VastAtlanta/images/Facebook.png"></img><img
+                    style="position: relative; bottom: 28px;"
+                    src="https://roycearoc.github.io/VastAtlanta/images/Twitter.png"></img> &nbsp; &nbsp;
+        </footer>
+
+    </aside>
+
+    <div id="Popup_defier"
+        style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+        <center>
+            <form action="/action_page.php">
+                <br><br>
+                Email:<br>
+                <input type="text" name="firstname">
+                <br>
+                Password:<br>
+                <input type="password" name="lastname">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form> <br>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button><br><br>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div>
+            <br>
+            <!--Facebook testing-->
+            <div style="display: none;" class="fb-login-button" data-width="100" data-size="medium"
+                data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <!---->
+
+
+        </center>
+        <div style="position: absolute; top:3px; right:3px;font-size: 17px; "><button
+                style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div>
+    </div>
+
+
+
+
+    <div id="Popup_defier_phone"
+        style="top: 30%; left: 42%; position: fixed; z-index: 10000000000000000; width: 20%; height: 400px; background-color: lightgrey; display: none;  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+        <center>
+            <form action="/action_page.php">
+                <br><br>
+                Email:<br>
+                <input type="text" name="firstname">
+                <br>
+                Password:<br>
+                <input type="password" name="lastname">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form> <br>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button><br><br>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSignInFailure" data-theme="dark"></div>
+            <br>
+            <!--Facebook testing-->
+            <div style="display: none;" class="fb-login-button" data-width="100" data-size="medium"
+                data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <!---->
+
+
+        </center>
+        <div style="position: absolute; top:3px; right:3px;font-size: 17px; "><button
+                style="border: none; background-color: transparent;" onclick="close_popup()">X</button></div>
+    </div>
+</body>
+
+
+<script>
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginRight = "250px";
+        document.getElementById("yum").style.display = "none";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+        document.getElementById("yum").style.display = "block";
+    }
+</script>
+<script>
+    function close_popup() {
+        document.getElementById("Popup_defier").style.display = "none";
+        document.getElementById("weak").style.display = "block";
+        //document.getElementById("cssmenu").style.display="block";
+    }
+    function Popup() {
+        document.getElementById("Popup_defier").style.display = "block";
+        document.getElementById("weak").style.display = "none";
+        //document.getElementById("cssmenu").style.display="none";
+    }
+</script>
+<script>
+
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+        document.getElementById("yourself").src = profile.getImageUrl();
+        document.getElementById("Popup_defier").style.opacity = '0';
+        document.getElementById("00001").style.opacity = '0';
+        document.getElementById("yum").style.display = "block";
+        document.getElementById("inputA").innerHTML = profile.getName();
+        document.getElementById("weak").style.display = "block";
+
+        //alert(profile.getGivenName());
+    }
+</script>
+<!--<a href="index.html" onclick="signOut();">Sign out</a>-->
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+<script>
+    //get window height minus 50 pixels for the headers height
+    var height = $(window).height() - 30;
+    $(".main").height(height);
+    window.onresize = function (event) {
+        var height = $(window).height() - 30;
+        $(".main").height(height);
+    };
+</script>
+
+<script
+    src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+<script id="rendered-js">
+    AOS.init({
+        duration: 1200
+    });
+      //# sourceURL=pen.js
+</script>
+<script
+    src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+<script>
+    window.console = window.console || function (t) { };
+</script>
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+    }
+</script>
+
+</html>
